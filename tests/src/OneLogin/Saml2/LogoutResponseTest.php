@@ -346,7 +346,7 @@ class OneLogin_Saml2_LogoutResponseTest extends PHPUnit_Framework_TestCase
         $message = file_get_contents(TEST_ROOT . '/data/logout_responses/logout_response_deflated.xml.base64');
         $response = new OneLogin_Saml2_LogoutResponse($this->_settings, $message);
 
-        $this->assertTrue($response->isValid());
+        $this->assertTrue($response->isValid(), $response->getError());
 
         $this->_settings->setStrict(true);
         $response2 = new OneLogin_Saml2_LogoutResponse($this->_settings, $message);
