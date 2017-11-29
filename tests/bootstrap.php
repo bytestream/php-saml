@@ -1,12 +1,16 @@
 <?php
 
+include ('compatibility.php');
+
 ob_start();
 
 $basePath = dirname(dirname(__FILE__));
 
 require_once $basePath.'/_toolkit_loader.php';
 
-if (!defined('TEST_ROOT')) define('TEST_ROOT', dirname(__FILE__));
+if (!defined('TEST_ROOT')) {
+    define('TEST_ROOT', dirname(__FILE__));
+}
 
 if (!defined('XMLSECLIBS_DIR')) define('XMLSECLIBS_DIR', $basePath.'/extlib/xmlseclibs/');
 require_once XMLSECLIBS_DIR . 'xmlseclibs.php';
@@ -29,12 +33,12 @@ if (!function_exists('getUrlFromRedirect')) {
     /**
     * In phpunit when a redirect is executed an Excepion raise,
     * this funcion Get the target URL of the redirection
-    * 
+    *
     * @param array $trace Trace of the Stack when an Exception raised
     *
     * @return string $targeturl Target url of the redirection
     */
-    function getUrlFromRedirect($trace) 
+    function getUrlFromRedirect($trace)
     {
         $param_args = $trace[0]['args'][4];
         $targeturl = $param_args['url'];
@@ -45,47 +49,19 @@ if (!function_exists('getUrlFromRedirect')) {
 if (!function_exists('getParamsFromUrl')) {
     /**
     * Parsed the Query parameters of an URL.
-    * 
+    *
     * @param string $url The URL
     *
     * @return array $parsedQuery Parsed query of the url
     */
-    function getParamsFromUrl($url) 
+    function getParamsFromUrl($url)
     {
+        $parsedQuery = null;
         $parsedUrl = parse_url($url);
-        $query = $parsedUrl['query'];
-        parse_str($query, $parsedQuery);
+        if (isset($parsedUrl['query'])) {
+            $query = $parsedUrl['query'];
+            parse_str($query, $parsedQuery);
+        }
         return $parsedQuery;
     }
-}
-
-/*
-|--------------------------------------------------------------------------
-| PHPUnit 4/5/6 Support
-|--------------------------------------------------------------------------
-|
-| PHPUnit 6 introduced a breaking change that removed 
-| PHPUnit_Framework_TestCase as a base class, and replaced it with
-| \PHPUnit\Framework\TestCase 
-|
-*/
-
-if (! class_exists('\PHPUnit_Framework_TestCase') && class_exists('\PHPUnit\Framework\TestCase')) {
-    class_alias('\PHPUnit\Framework\TestCase', '\PHPUnit_Framework_TestCase');
-}
-
-if (! class_exists('\PHPUnit_Framework_Assert') && class_exists('\PHPUnit\Framework\Assert')) {
-    class_alias('\PHPUnit\Framework\Assert', 'PHPUnit_Framework_Assert');
-}
-
-if (! class_exists('\PHPUnit_Framework_ExpectationFailedException') && class_exists('\PHPUnit\Framework\ExpectationFailedException')) {
-    class_alias('\PHPUnit\Framework\ExpectationFailedException', 'PHPUnit_Framework_ExpectationFailedException');
-}
-
-if (! class_exists('\PHPUnit_Framework_Constraint_Not') && class_exists('\PHPUnit\Framework\Constraint\LogicalNot')) {
-    class_alias('\PHPUnit\Framework\Constraint\LogicalNot', 'PHPUnit_Framework_Constraint_Not');
-}
-
-if (! class_exists('\PHPUnit_Framework_Constraint') && class_exists('\PHPUnit\Framework\Constraint\Constraint')) {
-    class_alias('\PHPUnit\Framework\Constraint\Constraint', 'PHPUnit_Framework_Constraint');
 }

@@ -9,35 +9,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-    * Tests the t method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::t
-    */
-/*
-    public function testT()
-    {
-	setlocale(LC_MESSAGES, 'en_US');
-
-        $msg = 'test';
-        $translatedMsg = OneLogin_Saml2_Utils::t($msg);
-        $this->assertEquals('test', $translatedMsg);
-
-        setlocale(LC_MESSAGES, 'es_ES');
-
-        $translatedMsg = OneLogin_Saml2_Utils::t($msg);
-        $this->assertEquals('prueba', $translatedMsg);
-
-        $newmsg = 'test2: %s';
-        $translatedMsgArgs = OneLogin_Saml2_Utils::t($newmsg, array('arg'));
-        $this->assertEquals('prueba2: arg', $translatedMsgArgs);
-    }
-*/
-
-    /**
-    * Tests the loadXML method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::loadXML
-    */
+     * Tests the loadXML method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::loadXML
+     */
     public function testLoadXML()
     {
         $dom = new DOMDocument();
@@ -56,10 +31,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the loadXML method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::loadXML
-    */
+     * Tests the loadXML method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::loadXML
+     */
     public function testXMLAttacks()
     {
         $dom = new DOMDocument();
@@ -100,10 +75,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the validateXML method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::validateXML
-    */
+     * Tests the validateXML method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::validateXML
+     */
     public function testValidateXML()
     {
         $metadataUnloaded = '<xml><EntityDescriptor>';
@@ -135,10 +110,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the formatCert method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::formatCert
-    */
+     * Tests the formatCert method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::formatCert
+     */
     public function testFormatCert()
     {
         $settingsDir = TEST_ROOT .'/settings/';
@@ -186,10 +161,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the formatPrivateKey method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::formatPrivateKey
-    */
+     * Tests the formatPrivateKey method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::formatPrivateKey
+     */
     public function testFormatPrivateKey()
     {
         $settingsDir = TEST_ROOT .'/settings/';
@@ -219,10 +194,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the redirect method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::redirect
-    */
+     * Tests the redirect method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::redirect
+     */
     public function testRedirect()
     {
         // Check relative and absolute
@@ -279,6 +254,9 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
 
     /**
      * @covers OneLogin_Saml2_Utils::setSelfHost
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     public function testSetselfhost()
     {
@@ -292,6 +270,9 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     /**
      * @covers OneLogin_Saml2_Utils::setProxyVars()
      * @covers OneLogin_Saml2_Utils::getProxyVars()
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     public function testProxyvars()
     {
@@ -310,10 +291,13 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the getSelfHost method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::getSelfHost
-    */
+     * Tests the getSelfHost method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::getSelfHost
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function testGetselfhost()
     {
         if (function_exists('gethostname')) {
@@ -344,10 +328,13 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the isHTTPS method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::isHTTPS
-    */
+     * Tests the isHTTPS method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::isHTTPS
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function testisHTTPS()
     {
         $this->assertFalse(OneLogin_Saml2_Utils::isHTTPS());
@@ -363,6 +350,9 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
 
     /**
      * @covers OneLogin_Saml2_Utils::getSelfURLhost
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     public function testGetselfurlhostdoubleport()
     {
@@ -378,6 +368,9 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
 
     /**
      * @covers OneLogin_Saml2_Utils::getSelfPort
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     public function testGetselfPort()
     {
@@ -404,6 +397,9 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
 
     /**
      * @covers OneLogin_Saml2_Utils::setSelfProtocol
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     public function testSetselfprotocol()
     {
@@ -415,6 +411,9 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
 
     /**
      * @covers OneLogin_Saml2_Utils::setBaseURLPath
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     public function testSetBaseURLPath()
     {
@@ -435,6 +434,9 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
 
     /**
      * @covers OneLogin_Saml2_Utils::setBaseURL
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     public function testSetBaseURL()
     {
@@ -455,7 +457,7 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
         $this->assertNull(OneLogin_Saml2_Utils::getSelfPort());
         $this->assertNull(OneLogin_Saml2_Utils::getBaseURLPath());
 
-        $this->assertEquals($expectedUrlNQ, OneLogin_Saml2_Utils::getSelfURLNoQuery());       
+        $this->assertEquals($expectedUrlNQ, OneLogin_Saml2_Utils::getSelfURLNoQuery());
         $this->assertEquals($expectedRoutedUrlNQ, OneLogin_Saml2_Utils::getSelfRoutedURLNoQuery());
         $this->assertEquals($expectedUrl, OneLogin_Saml2_Utils::getSelfURL());
 
@@ -469,23 +471,26 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('81', OneLogin_Saml2_Utils::getSelfPort());
         $this->assertEquals('/example2/', OneLogin_Saml2_Utils::getBaseURLPath());
 
-        $this->assertEquals($expectedUrlNQ2, OneLogin_Saml2_Utils::getSelfURLNoQuery());       
+        $this->assertEquals($expectedUrlNQ2, OneLogin_Saml2_Utils::getSelfURLNoQuery());
         $this->assertEquals($expectedRoutedUrlNQ2, OneLogin_Saml2_Utils::getSelfRoutedURLNoQuery());
         $this->assertEquals($expectedUrl2, OneLogin_Saml2_Utils::getSelfURL());
 
         $_SERVER['PATH_INFO'] = '/test';
         $expectedUrlNQ2 = 'http://anothersp.example.com:81/example2/route.php/test';
 
-        $this->assertEquals($expectedUrlNQ2, OneLogin_Saml2_Utils::getSelfURLNoQuery());       
+        $this->assertEquals($expectedUrlNQ2, OneLogin_Saml2_Utils::getSelfURLNoQuery());
         $this->assertEquals($expectedRoutedUrlNQ2, OneLogin_Saml2_Utils::getSelfRoutedURLNoQuery());
         $this->assertEquals($expectedUrl2, OneLogin_Saml2_Utils::getSelfURL());
     }
 
     /**
-    * Tests the getSelfURLhost method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::getSelfURLhost
-    */
+     * Tests the getSelfURLhost method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::getSelfURLhost
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function testGetSelfURLhost()
     {
         $hostname = OneLogin_Saml2_Utils::getSelfHost();
@@ -517,10 +522,13 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the getSelfURL method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::getSelfURL
-    */
+     * Tests the getSelfURL method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::getSelfURL
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function testGetSelfURL()
     {
         $url = OneLogin_Saml2_Utils::getSelfURLhost();
@@ -541,10 +549,13 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the getSelfURLNoQuery method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::getSelfURLNoQuery
-    */
+     * Tests the getSelfURLNoQuery method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::getSelfURLNoQuery
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function testGetSelfURLNoQuery()
     {
         $url = OneLogin_Saml2_Utils::getSelfURLhost();
@@ -557,10 +568,13 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the getSelfRoutedURLNoQuery method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::getSelfRoutedURLNoQuery
-    */
+     * Tests the getSelfRoutedURLNoQuery method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::getSelfRoutedURLNoQuery
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function getSelfRoutedURLNoQuery()
     {
         $url = OneLogin_Saml2_Utils::getSelfURLhost();
@@ -573,10 +587,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Gets the status of a message
-    *
-    * @covers OneLogin_Saml2_Utils::getStatus
-    */
+     * Gets the status of a message
+     *
+     * @covers OneLogin_Saml2_Utils::getStatus
+     */
     public function testGetStatus()
     {
         $xml = base64_decode(file_get_contents(TEST_ROOT . '/data/responses/response1.xml.base64'));
@@ -626,10 +640,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the parseDuration method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::parseDuration
-    */
+     * Tests the parseDuration method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::parseDuration
+     */
     public function testParseDuration()
     {
         $duration = 'PT1393462294S';
@@ -660,10 +674,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the parseSAML2Time method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::parseSAML2Time
-    */
+     * Tests the parseSAML2Time method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::parseSAML2Time
+     */
     public function testParseSAML2Time()
     {
         $time = 1386650371;
@@ -683,10 +697,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the parseTime2SAML method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::parseTime2SAML
-    */
+     * Tests the parseTime2SAML method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::parseTime2SAML
+     */
     public function testParseTime2SAML()
     {
         $time = 1386650371;
@@ -702,10 +716,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the getExpireTime method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::getExpireTime
-    */
+     * Tests the getExpireTime method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::getExpireTime
+     */
     public function testGetExpireTime()
     {
         $this->assertNull(OneLogin_Saml2_Utils::getExpireTime());
@@ -719,10 +733,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the query method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::query
-    */
+     * Tests the query method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::query
+     */
     public function testQuery()
     {
         $xml = base64_decode(file_get_contents(TEST_ROOT . '/data/responses/valid_response.xml.base64'));
@@ -771,11 +785,11 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the generateNameId method of the OneLogin_Saml2_Utils
-    * Adding a SPNameQualifier
-    *
-    * @covers OneLogin_Saml2_Utils::generateNameId
-    */
+     * Tests the generateNameId method of the OneLogin_Saml2_Utils
+     * Adding a SPNameQualifier
+     *
+     * @covers OneLogin_Saml2_Utils::generateNameId
+     */
     public function testGenerateNameIdWithSPNameQualifier()
     {
         //$xml = '<root xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'.$decrypted.'</root>';
@@ -813,10 +827,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the generateNameId method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::generateNameId
-    */
+     * Tests the generateNameId method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::generateNameId
+     */
     public function testGenerateNameIdWithoutSPNameQualifier()
     {
         //$xml = '<root xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'.$decrypted.'</root>';
@@ -854,17 +868,16 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the deleteLocalSession method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::deleteLocalSession
-    */
+     * Tests the deleteLocalSession method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::deleteLocalSession
+     */
     public function testDeleteLocalSession()
     {
         if (getenv("TRAVIS")) {
             // Can't test that on TRAVIS
             $this->markTestSkipped("Can't test that on TRAVIS");
         } else {
-
             if (!isset($_SESSION)) {
                 $_SESSION = array();
             }
@@ -889,17 +902,16 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the isSessionStarted method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::isSessionStarted
-    */
+     * Tests the isSessionStarted method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::isSessionStarted
+     */
     public function testisSessionStarted()
     {
         if (getenv("TRAVIS")) {
             // Can't test that on TRAVIS
             $this->markTestSkipped("Can't test that on TRAVIS");
         } else {
-
             $this->assertFalse(OneLogin_Saml2_Utils::isSessionStarted());
 
             $prev = error_reporting(0);
@@ -912,10 +924,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
 
 
     /**
-    * Tests the calculateX509Fingerprint method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::calculateX509Fingerprint
-    */
+     * Tests the calculateX509Fingerprint method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::calculateX509Fingerprint
+     */
     public function testCalculateX509Fingerprint()
     {
         $settingsDir = TEST_ROOT .'/settings/';
@@ -941,10 +953,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the formatFingerPrint method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::formatFingerPrint
-    */
+     * Tests the formatFingerPrint method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::formatFingerPrint
+     */
     public function testFormatFingerPrint()
     {
         $fingerPrint1 = 'AF:E7:1C:28:EF:74:0B:C8:74:25:BE:13:A2:26:3D:37:97:1D:A1:F9';
@@ -955,10 +967,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the decryptElement method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::decryptElement
-    */
+     * Tests the decryptElement method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::decryptElement
+     */
     public function testDecryptElement()
     {
         $settingsDir = TEST_ROOT .'/settings/';
@@ -1040,10 +1052,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the addSign method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::addSign
-    */
+     * Tests the addSign method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::addSign
+     */
     public function testAddSign()
     {
         $settingsDir = TEST_ROOT .'/settings/';
@@ -1106,10 +1118,10 @@ class OneLogin_Saml2_UtilsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * Tests the validateSign method of the OneLogin_Saml2_Utils
-    *
-    * @covers OneLogin_Saml2_Utils::validateSign
-    */
+     * Tests the validateSign method of the OneLogin_Saml2_Utils
+     *
+     * @covers OneLogin_Saml2_Utils::validateSign
+     */
     public function testValidateSign()
     {
         $settingsDir = TEST_ROOT .'/settings/';
