@@ -340,6 +340,9 @@ class OneLogin_Saml2_LogoutResponseTest extends PHPUnit_Framework_TestCase
      * Tests the isValid method of the OneLogin_Saml2_LogoutResponse
      *
      * @covers OneLogin_Saml2_LogoutResponse::isValid
+     *
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     public function testIsValid()
     {
